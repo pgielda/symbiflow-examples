@@ -64,7 +64,9 @@ jobs:
       - name: Install tuttest
         run: |
             sudo locale-gen $LANG
-            pip3 install git+https://github.com/antmicro/tuttest#egg=tuttest
+            wget https://github.com/antmicro/tuttest/releases/download/0.1.1/tuttest -O /usr/bin/tuttest
+            chmod +x /usr/bin/tuttest
+            
 
       - name: Install SymbiFlow toolchain
         run: bash .github/scripts/install-toolchain.sh ${{matrix.fpga-fam}} ${{matrix.os}} | ${IN_DOCKER_EXEC} "$(cat /dev/stdin)"
