@@ -53,9 +53,6 @@ jobs:
       - name: Setup repository
         uses: actions/checkout@v2
 
-      - name: Set Up Python
-        uses: actions/setup-python@v2
-
       - name: Setup Docker
         run: |
             docker create --name $DOCKER_NAME -v $PWD:$PWD --workdir $PWD --tty ${{matrix.os}}:${{matrix.os-version}}
